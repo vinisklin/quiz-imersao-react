@@ -1,11 +1,14 @@
 import styled from 'styled-components'
 import db from "../db.json";
+import Footer from "../src/components/Footer";
+import GitHubCorner from "../src/components/GitHubCorner";
+import QuizBackground from "../src/components/QuizBackground";
 import Widget from "../src/components/Widget";
 
-const BackgroundImage = styled.div`
-  background: url(${db.bg}) center/cover;
-  flex: 1;
-`;
+// const BackgroundImage = styled.div`
+//   background: url(${db.bg}) center/cover;
+//   flex: 1;
+// `;
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -20,7 +23,7 @@ const QuizContainer = styled.div`
 
 export default function Home() {
   return (
-    <BackgroundImage>
+    <QuizBackground backgroundImage={db.bg}>
       <QuizContainer>
         <Widget>
           <Widget.Header>
@@ -39,7 +42,10 @@ export default function Home() {
             <p>Teste doio</p>
           </Widget.Content>
         </Widget>
+
+        <Footer />
       </QuizContainer>
-    </BackgroundImage>
+      <GitHubCorner projectUrl="https://github.com/vinisklin/quiz-imersao-react" />
+    </QuizBackground>
   )
 }
